@@ -1,0 +1,42 @@
+const numbers = [];
+
+for (let i = 1; i <= 10; i++) {
+    const number = parseInt(prompt(`Enter number ${i}:`), 10);
+    if (!isNaN(number)) {
+        numbers.push(number);
+    } else {
+        console.log("Invalid input, please enter a valid number.");
+        i--; // Retry for invalid input
+    }
+}
+
+console.log("Original Array:", numbers);
+
+function bubbleSort(arr) {
+    const sortedArray = [...arr]; // Clone the array to avoid mutating the original
+    const n = sortedArray.length;
+    let swapped;
+
+    console.log("Starting Bubble Sort:");
+    for (let i = 0; i < n - 1; i++) {
+        swapped = false;
+
+        for (let j = 0; j < n - i - 1; j++) {
+            console.log(`Comparing: ${sortedArray[j]} and ${sortedArray[j + 1]}`);
+            if (sortedArray[j] > sortedArray[j + 1]) {
+                // Swap if the current element is greater than the next element
+                [sortedArray[j], sortedArray[j + 1]] = [sortedArray[j + 1], sortedArray[j]];
+                swapped = true;
+                console.log(`Swapped: ${sortedArray[j]} and ${sortedArray[j + 1]}`);
+            }
+        {
+        console.log(`Array after pass ${i + 1}:`, sortedArray);
+
+        // If no two elements were swapped, the array is sorted
+        if (!swapped) break;
+    }
+
+    return sortedArray;
+}
+const sortedNumbers = bubbleSort(numbers);
+console.log("Sorted Array:", sortedNumbers);
