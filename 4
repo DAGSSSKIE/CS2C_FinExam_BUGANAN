@@ -1,0 +1,44 @@
+class Node {
+    constructor(value) {
+        this.value = value; // Value of the current node
+        this.next = null;   // Pointer to the next node, initially null
+    }
+}
+class LinkedList {
+    constructor() {
+        this.head = null; // Head of the linked list, initially null
+        this.size = 0;    // Tracks the size of the linked list
+    }   
+    append(value) {
+        const newNode = new Node(value);
+
+        if (this.head === null) {
+            // If the list is empty, set the new node as the head
+            this.head = newNode;
+        } else {
+            // Traverse to the end of the list and append the new node
+            let current = this.head;
+            while (current.next !== null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+
+        this.size++; // Increment the size of the list
+        this.print(); // Print the list after appending
+    }
+   print() {
+        let current = this.head;
+        const values = [];
+        while (current !== null) {
+            values.push(current.value);
+            current = current.next;
+        }
+        console.log("Linked List:", values.join(" -> "));
+    }
+}
+const linkedList = new LinkedList();
+
+linkedList.append("Data Structures-Array");
+linkedList.append("Variable Type-Integer");
+linkedList.append("Sorting Algorithm-Bubble Sort");
