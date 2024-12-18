@@ -1,0 +1,46 @@
+// Create an empty array to act as the stack
+const groceryStack = [];
+
+// Function to peek at the top item or check if the stack is empty
+function peek() {
+    if (groceryStack.length === 0) {
+        console.log("The stack is empty.");
+        return null;
+    }
+    return groceryStack[groceryStack.length - 1];
+}
+
+// Function to push an item onto the stack
+function push(item) {
+    groceryStack.push(item);
+    console.log(`Pushed: "${item}"`);
+    printStack();
+}
+
+// Function to pop an item from the stack
+function pop() {
+    if (groceryStack.length === 0) {
+        console.log("Cannot pop: The stack is empty.");
+        return;
+    }
+    const removedItem = groceryStack.pop();
+    console.log(`Popped: "${removedItem}"`);
+    printStack();
+}
+
+// Function to print the current stack
+function printStack() {
+    console.log("Current Stack:", groceryStack.length ? groceryStack.join(" -> ") : "Empty");
+}
+
+// Main program to accept user input
+for (let i = 1; i <= 5; i++) {
+    const item = prompt(`Enter grocery item ${i}:`);
+    push(item);
+}
+
+// Perform sample operations for demonstration
+console.log("\nPeeking at the top of the stack:", peek());
+pop();
+pop();
+console.log("Peeking again after pops:", peek());
