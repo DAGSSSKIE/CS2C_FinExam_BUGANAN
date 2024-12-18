@@ -1,0 +1,12 @@
+const namesInput = prompt("Enter names separated by commas (e.g., Genevieve, Juan, Luna):");
+const agesInput = prompt("Enter ages separated by commas (e.g., 24, 65, 21):");
+
+const names = namesInput.split(',').map(name => name.trim()); // Trim extra spaces
+const ages = agesInput.split(',').map(Number); // Convert to numbers
+
+const restructuredArray = names.map((name, index) => [name, ages[index]]);
+
+console.log("Restructured Multi-Dimensional Array:");
+restructuredArray.forEach(([name, age]) => {
+    console.log(`[Name: ${name}, Age: ${age}]`);
+});
