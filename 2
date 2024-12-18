@@ -1,0 +1,14 @@
+const numbersInput = prompt("Enter numbers separated by commas (e.g., 24,65,21):");
+const namesInput = prompt("Enter names separated by commas (e.g., Zenvo, Erica):");
+
+const numbers = numbersInput.split(',').map(Number); // Convert to numbers
+const names = namesInput.split(',').map(name => name.trim()); // Trim extra spaces
+
+const mergedArray = [...numbers, ...names];
+console.log("Merged Array:", mergedArray);
+
+const sortedNumbers = [...numbers].sort((a, b) => b - a);
+console.log("Numbers Sorted in Reverse:", sortedNumbers);
+
+const sortedNames = [...names].sort((a, b) => a.localeCompare(b));
+console.log("Names Sorted Alphabetically:", sortedNames);
